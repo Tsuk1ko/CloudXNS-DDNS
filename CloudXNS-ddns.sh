@@ -2,7 +2,7 @@
 #==================================================
 # OS Required: Linux with curl
 # Description: CloudXNS DDNS on bash
-# Author: Kuretru
+# Author: Kuretru & JindaiKirin
 # Version: 1.1.160913
 # Github: https://github.com/kuretru/CloudXNS-DDNS/
 #==================================================
@@ -36,7 +36,8 @@ header2="API-REQUEST-DATE:"$time
 header3="API-HMAC:"$mac
 header4="API-FORMAT:json"
 
-result=$(curl -k -X POST -H $header1 -H "$header2" -H $header3 -H $header4 -d "$data" $url)
+#result=$(curl -k -X POST -H $header1 -H "$header2" -H $header3 -H $header4 -d "$data" $url)
+result=$(wget -qO- --no-check-certificate --header=$header1 --header="$header2" --header=$header3 --header=$header4 --post-data="$data" $url)
 if  [[ $(echo $result | grep "success") != "" ]] ;then
     logger -t NOTICE "CloudXNS DDNS success IP address $value"
 fi
