@@ -4,7 +4,7 @@
 ## 修改
 修改自原脚本，使用`wget`代替`curl`，因为有些 openwrt 路由器固件没有`curl`和`opkg`，还没有外置储存，无法挂载 opt 环境
 
-另有一个已经测试可以给梅林固件用的脚本  
+另有一个已经测试可以给梅林固件用的脚本  
 参考：https://github.com/RMerl/asuswrt-merlin/wiki/Custom-DDNS
 
 ## 特点
